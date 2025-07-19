@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Color and Style definitions for usage on bash and Makefile scripts.
-# For Bash: source colors.sh && printf "${RED}Hello${NC}\n"
-# For Makefile: include colors.sh && printf "${GREEN}Hello${NC}\n"
+# Color and Style definitions for usage on bash scripts.
+# Usage: source colors.sh && printf "${RED}Hello${NC}\n"
 #
 # If you want custom styling, you can use the color-with-style function.
-# For example:
+# For example: 
 #   printf "$(color-with-style RED BOLD)Hello$(color-with-style NONE)\n"
 #   printf "$(color-with-style PURPLE BOLD_UNDERLINE)Hello$(color-with-style NONE)\n"
 #   printf "$(color-with-style GREEN UNDERLINE)Hello$(color-with-style NONE)\n"
@@ -43,9 +42,9 @@ color-with-style() {
 export GREEN=$(color-with-style GREEN)
 export BLUE=$(color-with-style BLUE)
 export CYAN=$(color-with-style CYAN)
-export PURPLE=$(color-with-style PURPLE BOLD)
+export PURPLE=$(color-with-style PURPLE)
 export WHITE=$(color-with-style WHITE)
-export YELLOW=$(color-with-style YELLOW BOLD)
+export YELLOW=$(color-with-style YELLOW)
 export RED=$(color-with-style RED)
 export NC=$(color-with-style NONE)
 export RESET_COLOR=$(color-with-style NONE)
