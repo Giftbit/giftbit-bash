@@ -3,6 +3,9 @@
 # Color and Style definitions for usage on bash scripts.
 # Usage: source colors.sh && printf "${RED}Hello${NC}\n"
 #
+# To import from GitHub:
+# source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Giftbit/giftbit-bash/refs/heads/${COLORS_BRANCH}/colors.sh)"
+#
 # If you want custom styling, you can use the color-with-style function.
 # For example: 
 #   printf "$(color-with-style RED BOLD)Hello$(color-with-style NONE)\n"
@@ -28,14 +31,19 @@ STYLE_BOLD_UNDERLINE='1;4'
 color-with-style() {
   local color=$1
   local style=$2
-  local color_code=${!COLOR_${color}}
+  
+  local color_var_name
+  printf -v color_var_name "COLOR_%s" "$color"
+  local color_code=${!color_var_name}
 
   local style_code=0
   if [ -n "$style" ]; then
-    style_code=${!STYLE_${style}}
+    local style_var_name
+    printf -v style_var_name "STYLE_%s" "$style"
+    style_code=${!style_var_name}
   fi
 
-  echo "\033[${style_code};${color_code}m"
+  printf "\033[${style_code};${color_code}m"
 }
 
 # Basic colors
