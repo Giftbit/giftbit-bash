@@ -28,11 +28,11 @@ STYLE_BOLD_UNDERLINE='1;4'
 color-with-style() {
   local color=$1
   local style=$2
-  local color_code=$(eval echo \$COLOR_${color})
+  local color_code=${!COLOR_${color}}
 
   local style_code=0
   if [ -n "$style" ]; then
-    style_code=$(eval echo \$STYLE_${style})
+    style_code=${!STYLE_${style}}
   fi
 
   echo "\033[${style_code};${color_code}m"

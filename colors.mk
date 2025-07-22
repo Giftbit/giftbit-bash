@@ -27,7 +27,7 @@ $(COLOR_$(1))
 endef
 
 define get-style-code
-$(if $(2),$(STYLE_$(2)),0)
+$(if $(1),$(STYLE_$(1)),0)
 endef
 
 define color-with-style
