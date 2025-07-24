@@ -30,7 +30,7 @@ STYLE_BOLD_UNDERLINE='1;4'
 # Function to get color combinations
 color-with-style() {
   local color=$1
-  local style=$2
+  local style=${2:-}
   
   local color_var_name
   printf -v color_var_name "COLOR_%s" "$color"
